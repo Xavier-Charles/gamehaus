@@ -35,11 +35,15 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 ## UI Guide
 
-Color Palette
+#### Color Palette
 
 [Coolors](https://coolors.co/a60824-070709-f8f7f6-d03332-146da0-d9a5ab-3f323b-cd8a60)
 
 ![palette](https://i.imgur.com/mkaVJZn.png)
+
+#### Font
+
+[Press Start 2P](https://fonts.google.com/specimen/Press+Start+2P)
 
 #### Landing Page
 ![palette](https://i.imgur.com/OkrF0Ab.png)

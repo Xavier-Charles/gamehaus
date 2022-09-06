@@ -2,6 +2,28 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --color-ruby: #a60824;
+
+  --color-richBlack: #070709;
+
+  --color-culturedWhite: #f8f7f6;
+
+  --color-persianRed: #d03332;
+
+  --color-honoluluBlue: #146da0;
+
+  --color-pastelPink: #d9a5ab;
+
+  --color-blackCoffee: #3f323b;
+
+  --color-rawSienna: #cd8a60;
+
+  --color-black: #000000;
+
+  --color-white: #ffffff;
+}
+
 html,
 body {
   padding: 0;
@@ -17,14 +39,4 @@ a {
 
 * {
   box-sizing: border-box;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-  }
 }
