@@ -35,7 +35,7 @@ const GamesList = () => {
           <div className="xl:w-1/4 max-w-xs md:w-1/2 p-4 flex justify-center items-center h-[402px]">
             <div className="w-52 h-60 border-gray-300 border-2 rounded-lg flex flex-col justify-center items-center ">
               <CirclePlus className="stroke-gray-300" />
-              <p className="text-gray-300 text-lg">More Coming Soon!</p>
+              <p className="text-gray-300 text-lg mt-3">More Coming Soon!</p>
             </div>
           </div>
         </div>
