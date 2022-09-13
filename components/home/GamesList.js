@@ -2,18 +2,8 @@
 import Link from "next/link";
 import React from "react";
 import CirclePlus from "../../assets/circle-plus.svg";
+import { GAMES as games } from "../../data/config";
 
-const games = [
-  {
-    id: "1",
-    title: "Quiz Time",
-    slug: "chichen-itza",
-    desc: "",
-    shortDesc: `A smart-contract based multi-player quiz game. Rewards are distributed after the game ends.`,
-    img: "https://i.imgur.com/icR8eAo.png",
-    type: "Multi-Player",
-  },
-];
 
 const GamesList = () => {
   return (
@@ -21,7 +11,7 @@ const GamesList = () => {
       <div className="container px-5 py-24 mx-auto">
         <div className="flex flex-wrap -m-4 justify-center">
           {games.map((game) => (
-            <Link key={game.id} href={`/games/${game.slug}`}>
+            <Link key={game.id} href={`/game/${game.slug}`}>
               <div className="xl:w-1/4 max-w-xs md:w-1/2 p-4 cursor-pointer">
                 <div className="bg-gray-100 p-6 rounded-lg">
                   <img
