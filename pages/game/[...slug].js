@@ -5,7 +5,7 @@ import WorldCoin from "../../components/WorldCoin";
 
 const Game = () => {
   const [[gameSlug, gameId], setSlugs] = useState([]);
-  const [gameCode, setGameCode] = useState();
+  const [gameCode, setGameCode] = useState(null);
   const router = useRouter();
 
   const game = games.find((game) => game.slug === gameSlug);
@@ -20,6 +20,8 @@ const Game = () => {
   }, [router.query]);
 
   if (gameId) return <WorldCoin />;
+
+  const isSSR = () => typeof window === undefined; 
 
   return (
     <section className="">
