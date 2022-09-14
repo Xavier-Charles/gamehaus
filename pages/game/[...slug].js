@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { GAMES as games } from "../../data/config";
-import WorldCoin from "../../components/WorldCoin";
+import WorldCoinAuth from "../../components/WorldCoin";
+import GameApp from "../../components/GameApp";
+import Link from "next/link";
 
 const Game = () => {
-  const [[gameSlug, gameId], setSlugs] = useState([]);
+  const [[gameSlug, gameId, state], setSlugs] = useState([]);
   const [gameCode, setGameCode] = useState(null);
+  const [verified, setVerified] = useState(true);
   const router = useRouter();
 
   const game = games.find((game) => game.slug === gameSlug);
@@ -19,9 +22,11 @@ const Game = () => {
     if (slug) setSlugs(slug);
   }, [router.query]);
 
-  if (gameId) return <WorldCoin />;
-
-  const isSSR = () => typeof window === undefined; 
+  if (gameId) {
+    if (verified) return <GameApp />;
+    return <WorldCoinAuth setVerified={setVerified} />;
+    if (state === "new")
+  }
 
   return (
     <section className="">
@@ -41,7 +46,7 @@ const Game = () => {
             <button
               type="button"
               onClick={handleJoin}
-              className="bg-[#ffae00] text-white px-4 py-3 font-medium rounded absolute right-2 top-2"
+              className="bg-[#ffae00] text-white px-5 py-3 font-medium rounded absolute right-2 top-2"
             >
               Join
             </button>
@@ -52,12 +57,13 @@ const Game = () => {
               style={{ boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px" }}
             >
               <span className="mx-4 flex items-start flex-col leading-none">
-                <span
+                <Link
                   className="sm:text-3xl text-[#fff] mb-1"
                   style={{ fontFamily: "'Silkscreen', cursive" }}
+                  href={`/game/${gameSlug}/${id}/new`}
                 >
                   Start a New Game
-                </span>
+                </Link>
               </span>
             </button>
           </div>
