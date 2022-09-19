@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { getProvider } from "./providers/CBProvider";
+import { getProvider } from "../providers/CBProvider";
 
 
 export const useCoinbaseAuth = () => {

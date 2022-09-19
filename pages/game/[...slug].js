@@ -4,6 +4,7 @@ import { GAMES as games } from "../../data/config";
 import WorldCoinAuth from "../../components/WorldCoin";
 import GameApp from "../../components/GameApp";
 import Link from "next/link";
+import NewGameForm from "../../components/NewGameForm";
 
 const Game = () => {
   const [[gameSlug, gameId, state], setSlugs] = useState([]);
@@ -22,11 +23,26 @@ const Game = () => {
     if (slug) setSlugs(slug);
   }, [router.query]);
 
+  // Routing
   if (gameId) {
-    if (verified) return <GameApp />;
+    if (verified) {
+      if (state === "new") return <NewGameForm />;
+      return <GameApp />;
+    }
     return <WorldCoinAuth setVerified={setVerified} />;
-    if (state === "new")
   }
+
+const MakeId = (length) =>  {
+  var result = "";
+  var characters =
+    "abcdefghijklmnopqrstuvwxyz0123456789";
+  var charactersLength = characters.length;
+  for (var i = 0; i < length; i++) {
+    result += characters.charAt(Math.floor(Math.random() * charactersLength));
+  }
+  return result;
+}
+
 
   return (
     <section className="">
@@ -57,12 +73,13 @@ const Game = () => {
               style={{ boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px" }}
             >
               <span className="mx-4 flex items-start flex-col leading-none">
-                <Link
-                  className="sm:text-3xl text-[#fff] mb-1"
-                  style={{ fontFamily: "'Silkscreen', cursive" }}
-                  href={`/game/${gameSlug}/${id}/new`}
-                >
-                  Start a New Game
+                <Link href={`/game/${gameSlug}/${MakeId(6)}/new`}>
+                  <span
+                    className="sm:text-3xl text-[#fff] mb-1"
+                    style={{ fontFamily: "'Silkscreen', cursive" }}
+                  >
+                    Start a New Game
+                  </span>
                 </Link>
               </span>
             </button>

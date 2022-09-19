@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import React from "react";
-import { useCoinbaseAuth } from "../../api/coinbase";
+import { useCoinbaseAuth } from "../../api/utils/coinbase";
 
 const Hero = () => {
   const { CBConnect, account } = useCoinbaseAuth();
