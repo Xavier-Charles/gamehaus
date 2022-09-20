@@ -29,7 +29,10 @@ const Hero = () => {
                         >
                             Connect with Coinbase
                         </button>
-                        <button className="ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg">
+                        <button
+                            onClick={() => connectWallet(true)}
+                            className="ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg"
+                        >
                             Connect with MetaMask
                         </button>
                     </div>
